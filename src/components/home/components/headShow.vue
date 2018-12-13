@@ -32,4 +32,9 @@ export default {
     color: black
   h4
     font-size: 36px !important
+  @media screen and (min-width: 300px) and (max-width: 600px)
+    h1
+      font-size: 36px !important
+    h4
+      font-size: 16px !important
 </style>

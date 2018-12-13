@@ -1,13 +1,13 @@
 <template>
   <div>
-    <head-nav></head-nav>
+    <head-nav :select="componentName"></head-nav>
     <head-show></head-show>
     <sub-stance></sub-stance>
   </div>
 </template>
 
 <script>
-  import headNav from './components/headNav'
+  import headNav from '../public-components/headNav'
   import headShow from './components/headShow'
   import subStance from './components/subStance'
   export default {
@@ -18,6 +18,7 @@
       subStance
     },
     data: () => ({
+      componentName: 'home'
     })
   }
 </script>

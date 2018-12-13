@@ -1,12 +1,12 @@
 <template>
   <div>
-    <head-nav></head-nav>
+    <head-nav :select="componentName"></head-nav>
     <sub-stance></sub-stance>
   </div>
 </template>
 
 <script>
-  import headNav from './components/headNav'
+  import headNav from '../public-components/headNav'
   import subStance from './components/subStance'
   export default {
     name: "Home",
@@ -15,6 +15,7 @@
       subStance
     },
     data: () => ({
+      componentName: 'practise'
     })
   }
 </script>
