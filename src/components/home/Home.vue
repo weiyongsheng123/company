@@ -3,6 +3,7 @@
     <head-nav :select="componentName"></head-nav>
     <head-show></head-show>
     <sub-stance></sub-stance>
+    <company-map></company-map>
   </div>
 </template>
 
@@ -10,12 +11,14 @@
   import headNav from '../public-components/headNav'
   import headShow from './components/headShow'
   import subStance from './components/subStance'
+  import companyMap from './components/companyMap'
   export default {
     name: "Home",
     components: {
       headNav,
       headShow,
-      subStance
+      subStance,
+      companyMap
     },
     data: () => ({
       componentName: 'home'
