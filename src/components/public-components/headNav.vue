@@ -18,11 +18,11 @@
               <li v-for="(item,key,index) in navData" :key="index" :class="item.class" @mouseover="item.ul[0] && showList()" @mouseout="item.ul[0] && hideList()">
                 <router-link :to="item.path">
                   <a :href="item.link" class="dropdown-toggle" data-toggle="dropdown">
-                    {{item.content}} <b v-if="item.ul[0]" class="caret"></b>
+                    {{item.content}} <b v-if="item.ul[0]" @touchstart="alerta" class="caret"></b>
                   </a>
                 </router-link>
                 <ul class="dropdown-menu" v-if="item.ul[0]">
-                  <li v-for="(items,indexx) in item.ul" :key="indexx"><a :href="items[0]">{{items[1]}}</a><hr></li>                          
+                  <li v-for="(items,indexx) in item.ul" :key="indexx"><a :href="items[0]">{{items[1]}}</a><hr></li>
                 </ul>
               </li>
             </ul>
@@ -42,6 +42,7 @@ export default {
   },
   data () {
     return {
+      isShow: false,
       colors: ['red', 'green', 'yellow', 'blue'],
       navData: {
         home: {
@@ -101,6 +102,19 @@ export default {
     hideList () {
       var el = event.currentTarget.lastChild
       el.style.display = 'none'
+    },
+    alerta () {
+      var el = event.currentTarget.parentElement.parentElement.nextElementSibling
+      if (this.isShow)
+      {
+        el.style.display = 'none'
+        this.isShow = false
+      }
+      else
+      {
+        el.style.display = 'block'
+        this.isShow = true
+      }
     }
   },
   mounted () {
